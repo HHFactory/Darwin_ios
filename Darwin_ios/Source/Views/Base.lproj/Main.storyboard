@@ -1,0 +1,475 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="10117" systemVersion="15F34" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zqD-Ox-NSB">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="10085"/>
+    </dependencies>
+    <scenes>
+        <!--ひろば-->
+        <scene sceneID="nDH-4o-tKa">
+            <objects>
+                <viewController id="tRw-Wh-ycT" customClass="HirobaViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="9f1-eg-NGc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="nO7-L8-C53" customClass="HirobaLayout" customModule="Darwin_ios" customModuleProvider="target">
+                            <size key="itemSize" width="50" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="hirobaImageCell" id="VYG-TR-fCi" customClass="HirobaImageCell" customModule="Darwin_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="XhQ-DI-klx" kind="show" identifier="toRestaurantDetailPageSegue" id="AhD-6o-Rdr"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
+                    <navigationItem key="navigationItem" title="ひろば" id="o48-O4-Dez"/>
+                    <connections>
+                        <outlet property="hirobaCollectionView" destination="9f1-eg-NGc" id="lS7-Od-8cu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RhQ-TT-fQF" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="302"/>
+        </scene>
+        <!--ひろば-->
+        <scene sceneID="rp7-eN-7rt">
+            <objects>
+                <viewController id="hUS-yJ-G84" customClass="HirobaContainerViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="qOn-Oi-EIj"/>
+                        <viewControllerLayoutGuide type="bottom" id="0Vu-DN-aEo"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="K5a-wD-gb9">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bJh-xw-9NF">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                                <connections>
+                                    <segue destination="tRw-Wh-ycT" kind="embed" id="vf0-zp-NWg"/>
+                                </connections>
+                            </containerView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IKZ-dX-Yem">
+                                <rect key="frame" x="275" y="471" width="50" height="50"/>
+                                <color key="backgroundColor" red="0.0" green="1" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <state key="normal" image="CameraIcon"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="10"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="cameraButtonPushed:" destination="hUS-yJ-G84" eventType="touchUpInside" id="CCb-oi-CNI"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="bJh-xw-9NF" firstAttribute="top" secondItem="K5a-wD-gb9" secondAttribute="top" id="H6k-wY-CC2"/>
+                            <constraint firstAttribute="trailing" secondItem="bJh-xw-9NF" secondAttribute="trailing" id="TmW-L3-6rT"/>
+                            <constraint firstItem="bJh-xw-9NF" firstAttribute="leading" secondItem="K5a-wD-gb9" secondAttribute="leading" id="YI5-yb-qpJ"/>
+                            <constraint firstItem="0Vu-DN-aEo" firstAttribute="top" secondItem="bJh-xw-9NF" secondAttribute="bottom" id="c3p-4n-7la"/>
+                            <constraint firstItem="0Vu-DN-aEo" firstAttribute="top" secondItem="IKZ-dX-Yem" secondAttribute="bottom" constant="30" id="o1d-se-12k"/>
+                            <constraint firstItem="IKZ-dX-Yem" firstAttribute="centerX" secondItem="K5a-wD-gb9" secondAttribute="centerX" id="q3q-Tw-Gy7"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="ひろば" id="gR7-OK-Nlf"/>
+                    <connections>
+                        <outlet property="cameraButton" destination="IKZ-dX-Yem" id="FKl-ah-CY2"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Si1-uP-4nd" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="302"/>
+        </scene>
+        <!--タイムライン-->
+        <scene sceneID="9OO-0s-OkT">
+            <objects>
+                <viewController id="yg6-oK-S5z" customClass="TimeLineViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" id="pE9-5y-VhD">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="0.75" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="timeLineCell" rowHeight="300" id="byt-Or-wjk">
+                                <rect key="frame" x="0.0" y="92" width="600" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="byt-Or-wjk" id="HsG-lw-kgf">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                                <connections>
+                                    <segue destination="z7b-I4-7Wv" kind="show" identifier="toTimeLineDetailSegue" id="euI-fk-LMv"/>
+                                </connections>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <navigationItem key="navigationItem" title="タイムライン" id="JpZ-dt-dFD"/>
+                    <connections>
+                        <outlet property="timeLineTableView" destination="pE9-5y-VhD" id="o2o-Ai-fN6"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YjR-tN-J6p" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="1035"/>
+        </scene>
+        <!--タイムライン詳細画面-->
+        <scene sceneID="UAc-Of-4bE">
+            <objects>
+                <viewController title="タイムライン詳細画面" id="z7b-I4-7Wv" customClass="TimeLineDetailViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="300" sectionHeaderHeight="28" sectionFooterHeight="28" id="IVv-A6-ZEi">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="300" id="Rnl-6f-JOp" customClass="TimeLineViewCell" customModule="Darwin_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="92" width="600" height="300"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rnl-6f-JOp" id="PUf-E0-TAp">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="299.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="120" id="aM0-ft-foT" customClass="TimeLineCommentCell" customModule="Darwin_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="392" width="600" height="120"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="aM0-ft-foT" id="spH-ws-bQ8">
+                                    <rect key="frame" x="0.0" y="0.0" width="600" height="119.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                    </tableView>
+                    <connections>
+                        <outlet property="detailTableView" destination="IVv-A6-ZEi" id="2Wx-cH-sqz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="epo-xS-SPO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="1035"/>
+        </scene>
+        <!--マイページ-->
+        <scene sceneID="nNB-Hx-Nj5">
+            <objects>
+                <viewController title="マイページ" id="eMx-Ig-cQ1" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="1gi-8i-BcM"/>
+                        <viewControllerLayoutGuide type="bottom" id="wXD-7n-usX"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="xx2-0s-Jk4">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="ptF-Kh-b68"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qv0-FT-bky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="1846"/>
+        </scene>
+        <!--ホームタブ-->
+        <scene sceneID="kHM-x6-jk7">
+            <objects>
+                <viewController title="ホームタブ" id="dtt-SE-I0T" customClass="HomeContainerViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="U32-ge-FSA"/>
+                        <viewControllerLayoutGuide type="bottom" id="NzN-3N-1ye"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8OG-LH-wmC">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Etl-4k-AMT">
+                                <rect key="frame" x="0.0" y="65" width="600" height="486"/>
+                                <connections>
+                                    <segue destination="w4u-HN-geP" kind="embed" identifier="embedContentViewSegue" id="trs-VR-7is"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2KV-NM-06D">
+                                <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="65" id="RGU-pu-iND"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="1UP-ks-3Bd" kind="embed" identifier="embedCategoryBarSegue" id="UsJ-FE-ivK"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="NzN-3N-1ye" firstAttribute="top" secondItem="Etl-4k-AMT" secondAttribute="bottom" id="0It-fG-UK6"/>
+                            <constraint firstItem="2KV-NM-06D" firstAttribute="top" secondItem="U32-ge-FSA" secondAttribute="bottom" id="HYg-qn-Dk4"/>
+                            <constraint firstItem="Etl-4k-AMT" firstAttribute="top" secondItem="2KV-NM-06D" secondAttribute="bottom" id="P0W-cc-JbM"/>
+                            <constraint firstItem="Etl-4k-AMT" firstAttribute="leading" secondItem="8OG-LH-wmC" secondAttribute="leading" id="V1k-t5-fgK"/>
+                            <constraint firstItem="Etl-4k-AMT" firstAttribute="top" secondItem="2KV-NM-06D" secondAttribute="bottom" id="WA8-4G-neM"/>
+                            <constraint firstAttribute="trailing" secondItem="Etl-4k-AMT" secondAttribute="trailing" id="cbP-l9-gv3"/>
+                            <constraint firstItem="2KV-NM-06D" firstAttribute="leading" secondItem="8OG-LH-wmC" secondAttribute="leading" id="oBU-OA-6oR"/>
+                            <constraint firstAttribute="trailing" secondItem="2KV-NM-06D" secondAttribute="trailing" id="xzs-Ko-xIa"/>
+                            <constraint firstItem="2KV-NM-06D" firstAttribute="top" secondItem="8OG-LH-wmC" secondAttribute="top" id="zLp-i7-gdZ"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="constraints">
+                                <exclude reference="HYg-qn-Dk4"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" id="RNZ-sg-HhV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LOK-7a-mt0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1055" y="-451"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="Uzv-gQ-lcL">
+            <objects>
+                <tabBarController id="zqD-Ox-NSB" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleToFill" id="Ixs-gj-v3r">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="ot9-je-LEz" kind="relationship" relationship="viewControllers" id="wJb-Si-jQG"/>
+                        <segue destination="eT6-DN-pQ0" kind="relationship" relationship="viewControllers" id="Bop-TV-q1Y"/>
+                        <segue destination="02h-SL-s50" kind="relationship" relationship="viewControllers" id="B8v-qP-NQc"/>
+                        <segue destination="67F-Sm-Qb9" kind="relationship" relationship="viewControllers" id="3h5-Zd-WxC"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LmB-Ja-a7u" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-617" y="756"/>
+        </scene>
+        <!--ホーム-->
+        <scene sceneID="o7V-df-Gp1">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="ot9-je-LEz" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ホーム" image="HomeIcon" id="g9K-Lu-VMI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="S6Q-6K-CSb">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dtt-SE-I0T" kind="relationship" relationship="rootViewController" id="GKr-ad-Tno"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TeI-yv-1tj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="323" y="-451"/>
+        </scene>
+        <!--ホームタブカテゴリバー-->
+        <scene sceneID="JCH-1e-dlD">
+            <objects>
+                <viewController title="ホームタブカテゴリバー" id="1UP-ks-3Bd" customClass="CategoryBarViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="zyk-Gq-DZc">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="65"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="a1K-NX-n77">
+                            <size key="itemSize" width="120" height="45"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryItemCell" id="Ypt-LG-lrd" customClass="CategoryBarCell" customModule="Darwin_ios" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="20.5" width="120" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="120" height="44"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UQg-sB-w6y" customClass="CategoryLabel" customModule="Darwin_ios" customModuleProvider="target">
+                                            <rect key="frame" x="0.0" y="11" width="120" height="21"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                            <userDefinedRuntimeAttributes>
+                                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                    <integer key="value" value="10"/>
+                                                </userDefinedRuntimeAttribute>
+                                                <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                            </userDefinedRuntimeAttributes>
+                                        </label>
+                                    </subviews>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <constraints>
+                                    <constraint firstItem="UQg-sB-w6y" firstAttribute="leading" secondItem="Ypt-LG-lrd" secondAttribute="leading" id="F9V-qV-waR"/>
+                                    <constraint firstItem="UQg-sB-w6y" firstAttribute="centerX" secondItem="Ypt-LG-lrd" secondAttribute="centerX" id="QoV-b2-OZZ"/>
+                                    <constraint firstAttribute="trailing" secondItem="UQg-sB-w6y" secondAttribute="trailing" id="Wke-Iu-xHP"/>
+                                    <constraint firstItem="UQg-sB-w6y" firstAttribute="centerY" secondItem="Ypt-LG-lrd" secondAttribute="centerY" id="w3A-n5-x5S"/>
+                                </constraints>
+                                <size key="customSize" width="120" height="44"/>
+                                <connections>
+                                    <outlet property="categoryItemLabel" destination="UQg-sB-w6y" id="2Pt-Qa-b54"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
+                    <connections>
+                        <outlet property="categoryBarView" destination="zyk-Gq-DZc" id="CFM-zZ-KCK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qEI-3b-K72" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="-728.5"/>
+        </scene>
+        <!--ホームタブコンテンツ-->
+        <scene sceneID="L0o-Va-ofF">
+            <objects>
+                <pageViewController autoresizesArchivedViewToFullSize="NO" title="ホームタブコンテンツ" transitionStyle="scroll" navigationOrientation="horizontal" spineLocation="none" id="w4u-HN-geP" customClass="HomeContentPageViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4u7-sm-Ggw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1754" y="-394"/>
+        </scene>
+        <!--コンテンツCollectionView-->
+        <scene sceneID="hh3-Pg-znw">
+            <objects>
+                <viewController storyboardIdentifier="ContentViewController" title="コンテンツCollectionView" id="Xhk-vu-obI" customClass="HomeContentViewController" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <collectionView key="view" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" id="Q7G-Zf-l1v">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DPE-D4-jWf">
+                            <size key="itemSize" width="156" height="50"/>
+                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                        </collectionViewFlowLayout>
+                        <cells>
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="LfD-fM-vpw">
+                                <rect key="frame" x="0.0" y="0.0" width="156" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                    <rect key="frame" x="0.0" y="0.0" width="156" height="50"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                </view>
+                                <connections>
+                                    <segue destination="XhQ-DI-klx" kind="show" identifier="toRestaurantDetailPageSegue" id="okL-JW-bxD"/>
+                                </connections>
+                            </collectionViewCell>
+                        </cells>
+                    </collectionView>
+                    <connections>
+                        <outlet property="contentCollectionView" destination="Q7G-Zf-l1v" id="gsp-EC-cXH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FYy-ga-KvW" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2434" y="-451"/>
+        </scene>
+        <!--レストラン詳細画面-->
+        <scene sceneID="oXP-i8-9yX">
+            <objects>
+                <viewController title="レストラン詳細画面" id="XhQ-DI-klx" customClass="RestaurantDetailPage" customModule="Darwin_ios" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="gyl-W2-n8Q"/>
+                        <viewControllerLayoutGuide type="bottom" id="Hkp-BA-Sgn"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="S8A-8Z-U9X">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="551"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mul-56-x8F">
+                                <rect key="frame" x="279" y="264" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="mul-56-x8F" firstAttribute="centerY" secondItem="S8A-8Z-U9X" secondAttribute="centerY" id="BmM-EU-G6w"/>
+                            <constraint firstItem="mul-56-x8F" firstAttribute="centerX" secondItem="S8A-8Z-U9X" secondAttribute="centerX" id="On5-La-2xa"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="testLabel" destination="mul-56-x8F" id="pnV-r6-AaO"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="58g-jT-EqR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2434" y="302"/>
+        </scene>
+        <!--ひろば-->
+        <scene sceneID="4Pv-DX-Dbc">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="eT6-DN-pQ0" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="ひろば" image="HirobaIcon" id="ws5-ay-1yA"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="y7b-f2-gAj">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="hUS-yJ-G84" kind="relationship" relationship="rootViewController" id="aUn-8N-iY4"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YtY-h9-Tke" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="323" y="302"/>
+        </scene>
+        <!--タイムライン-->
+        <scene sceneID="XBj-pA-c9a">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="02h-SL-s50" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="タイムライン" image="TimelineIcon" id="K7g-FO-jhn"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="2dq-Ev-y99">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="yg6-oK-S5z" kind="relationship" relationship="rootViewController" id="XTz-cT-nT2"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mEb-gX-662" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="323" y="1035"/>
+        </scene>
+        <!--マイページ-->
+        <scene sceneID="wOf-F1-5Jm">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="67F-Sm-Qb9" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="マイページ" id="SUE-7A-Lm1"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="lkf-Kc-5fW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="eMx-Ig-cQ1" kind="relationship" relationship="rootViewController" id="M9b-z3-wGN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="egF-qz-9tS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="323" y="1846"/>
+        </scene>
+    </scenes>
+    <resources>
+        <image name="CameraIcon" width="50" height="50"/>
+        <image name="HirobaIcon" width="32" height="32"/>
+        <image name="HomeIcon" width="32" height="32"/>
+        <image name="TimelineIcon" width="32" height="32"/>
+    </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="AhD-6o-Rdr"/>
+    </inferredMetricsTieBreakers>
+</document>
