@@ -110,3 +110,26 @@ class CellPattern {
     }
 }
 
+// レストラン詳細画面セルパターン
+class detailCellPattern {
+    
+    private var imageCell: CGSize
+    private var detailInfoCell: CGSize
+    
+    init(viewWidth: CGFloat) {
+        imageCell = CGSizeMake(viewWidth, 190.0)
+        detailInfoCell = CGSizeMake(viewWidth, 45.0)
+    }
+    
+    
+    func makeRectForImageCell(indexPath: NSIndexPath) -> CGRect {
+        return CGRectMake(imageCell.width * CGFloat(indexPath.item), 0.0, imageCell.width, imageCell.height)
+    }
+    
+    func makeRectForDetailInfoCell(indexPath: NSIndexPath) -> CGRect {
+        print("\(indexPath.row)")
+        return CGRectMake(0.0, imageCell.height+detailInfoCell.height*CGFloat(indexPath.row), detailInfoCell.width, detailInfoCell.height)
+    }
+    
+}
+

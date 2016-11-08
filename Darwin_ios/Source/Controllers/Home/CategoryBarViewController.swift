@@ -216,22 +216,7 @@ extension CategoryBarViewController: UICollectionViewDelegateFlowLayout {
         let labelText:NSString = TestData.sharedInstance.data[indexPath.item%CategoryIndex.categoryCount].menuTitle
         let font = UIFont.systemFontOfSize(17.0)
         let size: CGSize = labelText.sizeWithAttributes([NSFontAttributeName: font])
-        return CGSize(width: size.width+20, height: 45)
-    }
-    
-    /**
-     collectionViewのpaddingを設定する
-     ステータスバーを考慮し、top:20のpaddingを設定
-     
-     - parameter collectionView:       <#collectionView description#>
-     - parameter collectionViewLayout: <#collectionViewLayout description#>
-     - parameter section:              <#section description#>
-     
-     - returns: <#return value description#>
-     */
-    func collectionView(collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAtIndex section: Int) -> UIEdgeInsets {
-        categoryBarView.contentInset = UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
-        return UIEdgeInsetsMake(20.0, 0.0, 0.0, 0.0)
+        return CGSize(width: size.width+20, height: collectionView.bounds.height)
     }
     
     /**

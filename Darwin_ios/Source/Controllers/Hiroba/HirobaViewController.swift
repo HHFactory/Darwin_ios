@@ -34,9 +34,8 @@ class HirobaViewController: UIViewController {
      */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueNames.ToRestaurantDetail.rawValue {
-            let vc = segue.destinationViewController as! RestaurantDetailPage
-            let selectedIndexPath = sender as! NSIndexPath
-            vc.testData = selectedIndexPath.item.description
+            let vc = segue.destinationViewController as! RestaurantDetailContainerViewController
+            vc.hidesBottomBarWhenPushed = true
         }
     }
 

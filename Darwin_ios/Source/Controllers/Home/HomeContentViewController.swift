@@ -27,6 +27,7 @@ class HomeContentViewController: UIViewController {
         let nib = UINib(nibName: NibNames.HomeContentCellNib.rawValue, bundle: nil)
         contentCollectionView.registerNib(nib, forCellWithReuseIdentifier: ViewIdentifiers.HomeContentViewCell.rawValue)
     }
+
     
     /**
      画面遷移時前処理
@@ -37,12 +38,12 @@ class HomeContentViewController: UIViewController {
      */
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == SegueNames.ToRestaurantDetail.rawValue {
-            let vc = segue.destinationViewController as! RestaurantDetailPage
-            let selectedIndexPath = sender as! NSIndexPath
-            vc.testData = selectedIndexPath.item.description
+            let vc = segue.destinationViewController as! RestaurantDetailContainerViewController
+            // tabbarを非表示にする
+            vc.hidesBottomBarWhenPushed = true            
         }
     }
-        
+            
 }
 
 

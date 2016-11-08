@@ -35,8 +35,14 @@ class HirobaContainerViewController: UIViewController {
         actionSheet.addAction(defaultAction)
         actionSheet.addAction(defaultAction2)
         self.presentViewController(actionSheet, animated: true, completion: nil)
-        
     }
+    
+    /**
+     遷移先から戻ってくる場合の処理
+     
+     - parameter segue: <#segue description#>
+     */
+    @IBAction func backToPreView(segue: UIStoryboardSegue){}
 }
 
 

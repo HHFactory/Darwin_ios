@@ -49,6 +49,8 @@ class HomeContainerViewController: UIViewController {
             contentPageViewController?.categorySelectedDelegate = self
         }
     }
+    
+    @IBAction func backToPreView(segue: UIStoryboardSegue){}
 
 }
 

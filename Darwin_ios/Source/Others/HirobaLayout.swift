@@ -34,18 +34,18 @@ class HirobaLayout: UICollectionViewFlowLayout {
         guard let collectionView = self.collectionView else{
             return
         }
-        
-        // cellpattern struct initialize
+
+        // ひろばで使用するセルサイズ定義クラスを初期化
         let cellPattern = CellPattern(basisCellSize: collectionView.bounds.width/3)
   
         // heightは表示するセル数やサイズによって変化するため、高さ以外のcontentSizeを設定する。
         contentSize = CGSize(width: collectionView.bounds.width, height: 0)
         
-        var cellRect:CGRect = CGRectZero
         
         // 設定されているsectionごとにcellの配置位置を決める
         for section in 0..<collectionView.numberOfSections() {
             var cells = [CGRect]()
+            var cellRect:CGRect = CGRectZero
             var height = contentSize.height
             let itemCountInSection: Int = collectionView.numberOfItemsInSection(section)
 
